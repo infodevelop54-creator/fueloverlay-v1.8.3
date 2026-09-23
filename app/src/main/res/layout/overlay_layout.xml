@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#CC000000">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/frontSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView android:id="@+id/icSpent"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:contentDescription="Потрачено" />
+
+                <TextView android:id="@+id/textSpent"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="4dp"
+                    android:text="0.0 л" android:textColor="#FFFFFF"
+                    android:textSize="14sp" android:textStyle="bold" />
+
+                <ImageButton android:id="@+id/btnFlipToBack"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/flip_to_back"
+                    android:scaleType="fitCenter"
+                    android:src="@android:drawable/ic_menu_rotate" />
+
+                <ImageView android:id="@+id/icRemaining"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:contentDescription="Остаток" />
+
+                <TextView android:id="@+id/textRemaining"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="4dp"
+                    android:gravity="end" android:text="50.0 л"
+                    android:textColor="#FFFFFF" android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingTop="2dp" android:paddingBottom="6dp">
+
+                <ImageView android:id="@+id/icMileage"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:contentDescription="Пробег" />
+
+                <TextView android:id="@+id/textMileage"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="4dp"
+                    android:text="0.0 км" android:textColor="#FFFFFF" android:textSize="14sp" />
+
+                <View android:layout_width="28dp" android:layout_height="1dp" />
+
+                <ImageView android:id="@+id/icRange"
+                    android:layout_width="16dp" android:layout_height="16dp"
+                    android:contentDescription="Остаток пробега" />
+
+                <TextView android:id="@+id/textRange"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="4dp"
+                    android:gravity="end" android:text="0.0 км"
+                    android:textColor="#FFFFFF" android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/scaleContainer"
+                android:layout_width="260dp" android:layout_height="10dp"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="6dp">
+
+                <TextView android:id="@+id/modeJam"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Прб. 0.00"
+                    android:textColor="#80FFFFFF" android:textSize="10sp"
+                    android:clickable="true" android:focusable="false"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <TextView android:id="@+id/modeWarmup"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="Прг. 0.00"
+                    android:textColor="#80FFFFFF" android:textSize="10sp"
+                    android:clickable="true" android:focusable="false"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <TextView android:id="@+id/modeParked"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:gravity="center"
+                    android:text="Ост. 0.00"
+                    android:textColor="#80FFFFFF" android:textSize="10sp"
+                    android:clickable="true" android:focusable="false"
+                    android:background="?android:attr/selectableItemBackground" />
+
+                <TextView android:id="@+id/modeOff"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:gravity="end"
+                    android:text="Выкл."
+                    android:textColor="#80FFFFFF" android:textSize="10sp"
+                    android:clickable="true" android:focusable="false"
+                    android:background="?android:attr/selectableItemBackground" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/backSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/promptPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView android:id="@+id/tvPromptTitle"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Что происходит?"
+                    android:textColor="#FFFFFF" android:textSize="12sp"
+                    android:textStyle="bold" android:paddingBottom="6dp" />
+
+                <Button android:id="@+id/btnPromptJam"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Пробка" />
+                <Button android:id="@+id/btnPromptParkedOn"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Стою, двиг. вкл" />
+                <Button android:id="@+id/btnPromptParkedOff"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Стою, двиг. выкл" />
+                <Button android:id="@+id/btnPromptWarmup"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Прогреваюсь" />
+                <Button android:id="@+id/btnPromptStillJam"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Да, ещё в пробке" />
+                <Button android:id="@+id/btnPromptJamOver"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Уже поехали" />
+                <Button android:id="@+id/btnPromptEngineOff"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Заглушил двигатель" />
+                <Button android:id="@+id/btnPromptWarmupDone"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="Да, прогрев закончен" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/normalPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button android:id="@+id/btnRefuelFull"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/btn_refuel_full" />
+
+                <Button android:id="@+id/btnRefuelPlus"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" android:text="@string/btn_refuel_plus" />
+
+                <Button android:id="@+id/btnOpenSettings"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" android:text="@string/btn_settings" />
+
+                <Button android:id="@+id/btnIoCwg"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp" android:text="@string/btn_io_cwg" />
+
+                <TextView android:id="@+id/tvIoCwgHint"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp" android:text="@string/hint_io_cwg"
+                    android:textColor="#AAFFFFFF" android:textSize="10sp" />
+            </LinearLayout>
+
+            <ImageButton android:id="@+id/btnFlipToFront"
+                android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_gravity="center_horizontal" android:layout_marginTop="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/flip_to_front"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_rotate" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
